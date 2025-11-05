@@ -1,0 +1,4 @@
+import math
+Degree = float(input("Введите исходное число градусов: "))
+Radians = math.radians(Degree)
+print(math.sin(Radians)+math.cos(Radians)+math.tan(Radians)**2)
