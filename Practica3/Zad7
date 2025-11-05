@@ -1,0 +1,6 @@
+coupe_count = int(input("Введите номер места пассажира\n"))
+print("Номер купе:")
+if coupe_count % 4 == 0:
+    print(coupe_count // 4)
+else:
+    print(coupe_count // 4 + 1)
