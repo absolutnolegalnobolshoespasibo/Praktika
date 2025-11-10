@@ -1,4 +1,4 @@
 students = int(input("Введите количество школьников, поедающих мандарины: "))
 mandarins = int(input("Введите количество мандаринов: "))
-print("Каждому школьнику достанется:", students // mandarins, "мандаринов")
-print("В корзине останется:", students % mandarins, "мандаринов")
+print("Каждому школьнику достанется:", mandarins // students, "мандаринов")
+print("В корзине останется:", mandarins % students, "мандаринов")
