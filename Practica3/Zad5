@@ -1,4 +1,4 @@
 minutes_start = int(input("Введите целое число - количество минут: "))
-hours =mMinutes_start // 60
+hours =minutes_start // 60
 minutes = minutes_start % 60
 print(minutes_start, "мин - это", hours, "час", minutes, "минут.")
