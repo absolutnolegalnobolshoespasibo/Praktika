@@ -1,0 +1,36 @@
+print("Банкомат")
+
+B5000 = 5000
+B2000 = 2000
+B1000 = 1000
+B500  = 500
+B200  = 200
+B100  = 100
+
+amount = int(input("Введите сумму (кратную 100): "))
+
+c5000 = amount // B5000
+amount %= B5000
+
+c2000 = amount // B2000
+amount %= B2000
+
+c1000 = amount // B1000
+amount %= B1000
+
+c500 = amount // B500
+amount %= B500
+
+c200 = amount // B200
+amount %= B200
+
+c100 = amount // B100
+amount %= B100
+
+print("\nРазмен суммы", amount, "руб:")
+print(f"{B5000} руб — {c5000} шт.")
+print(f"{B2000} руб — {c2000} шт.")
+print(f"{B1000} руб — {c1000} шт.")
+print(f"{B500} руб — {c500} шт.")
+print(f"{B200} руб — {c200} шт.")
+print(f"{B100} руб — {c100} шт.")
