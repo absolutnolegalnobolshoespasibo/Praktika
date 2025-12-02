@@ -1,0 +1,67 @@
+
+# Нормальные диапазоны
+NORMAL_TEMP_MIN = 36.0
+NORMAL_TEMP_MAX = 37.0
+NORMAL_PRESSURE_MIN = 110
+NORMAL_PRESSURE_MAX = 130
+NORMAL_PULSE_MIN = 60
+NORMAL_PULSE_MAX = 100
+
+# Границы легкого недомогания
+MILD_TEMP_MIN = 35.0
+MILD_TEMP_MAX = 38.0
+MILD_PRESSURE_MIN = 105
+MILD_PRESSURE_MAX = 140
+MILD_PULSE_MIN = 55
+MILD_PULSE_MAX = 110
+
+# Сообщения для различных состояний
+MSG_NORMAL = "НОРМАЛЬНОЕ СОСТОЯНИЕ"
+MSG_MILD = "ЛЁГКОЕ НЕДОМОГАНИЕ"
+MSG_SEVERE = "ТРЕБУЕТСЯ ВРАЧ"
+
+print("=== АНАЛИЗ СОСТОЯНИЯ ЗДОРОВЬЯ ===")
+print("Введите параметры:")
+
+
+# Ввод данных от пользователя
+temperature = float(input("Температура (°C): "))
+pressure = int(input("Давление (верхнее): "))
+pulse = int(input("Пульс (уд/мин): "))
+
+# Детали по каждому параметру
+print("\nАНАЛИЗ ПО ПАРАМЕТРАМ:")
+
+# Температура
+if NORMAL_TEMP_MIN <= temperature <= NORMAL_TEMP_MAX:
+    temp_status = "норма"
+elif (MILD_TEMP_MIN <= temperature < NORMAL_TEMP_MIN) or (NORMAL_TEMP_MAX < temperature <= MILD_TEMP_MAX):
+    temp_status = "небольшое отклонение"
+else:
+    temp_status = "критическое отклонение"
+
+# Давление
+if NORMAL_PRESSURE_MIN <= pressure <= NORMAL_PRESSURE_MAX:
+    pressure_status = "норма"
+elif (MILD_PRESSURE_MIN <= pressure < NORMAL_PRESSURE_MIN) or (NORMAL_PRESSURE_MAX < pressure <= MILD_PRESSURE_MAX):
+    pressure_status = "небольшое отклонение"
+else:
+    pressure_status = "критическое отклонение"
+
+# Пульс
+if NORMAL_PULSE_MIN <= pulse <= NORMAL_PULSE_MAX:
+    pulse_status = "норма"
+elif (MILD_PULSE_MIN <= pulse < NORMAL_PULSE_MIN) or (NORMAL_PULSE_MAX < pulse <= MILD_PULSE_MAX):
+    pulse_status = "небольшое отклонение"
+else:
+    pulse_status = "критическое отклонение"
+
+print(f"• Температура: {temperature}°C ({temp_status})")
+print(f"• Давление: {pressure} ({pressure_status})")
+print(f"• Пульс: {pulse} уд/мин ({pulse_status})")
+
+print("\n" + "=" * 50)
+print("РЕЗУЛЬТАТЫ АНАЛИЗА:")
+print("=" * 50)
+print(f"Общее состояние: {result}")
+print("-" * 50)
