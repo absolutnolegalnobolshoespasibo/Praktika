@@ -16,7 +16,7 @@ def Calculate_Colour (Column, Row):
 
 CHESSBOARD_SIZE = 8
 Column1, Row1 = map(int, input("Введите номер столбца и строки первой клетки шахматной доски через пробел (от 1 до 8) ").split())
-Column2, Row2 = map(int, input("Введите номер столбца и строки первой клетки шахматной доски через пробел (от 1 до 8) ").split())
+Column2, Row2 = map(int, input("Введите номер столбца и строки второй клетки шахматной доски через пробел (от 1 до 8) ").split())
 if 1 <= Column1 <= CHESSBOARD_SIZE and  1 <= Column2 <= CHESSBOARD_SIZE and 1 <= Row1 <= CHESSBOARD_SIZE and 1 <= Row2 <= CHESSBOARD_SIZE:
     if Calculate_Colour(Column1, Row1) == Calculate_Colour(Column2, Row2):
         print("YES")
