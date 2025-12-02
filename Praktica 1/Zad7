@@ -1,0 +1,23 @@
+name = input("Ваше имя: ")
+try:
+   age_str = int(input("Ваш возраст: "))
+except ValueError: print('Неверно набранный возраст!')
+subjects_str = input("Любимые предметы (Через запятую): ")
+
+try:
+   student = {
+       "name": name,
+       "age": age_str,
+       "subjects": subjects_str,
+   }
+except NameError: print('')
+
+try:
+   print("="*30)
+   print("АНКЕТА СТУДЕНТА")
+   print("="*30)
+   print(f"Имя: {student['name']}")
+   print(f"Возраст: {student['age']}")
+   print(f"Любимые предметы: {student['subjects']}")
+   print("="*30)
+except NameError: print('Неверно введены данные!')
