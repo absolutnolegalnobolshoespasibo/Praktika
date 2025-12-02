@@ -4,10 +4,10 @@ def convert_usd_to_rub(amount_usd):
     """
     Конвертирует сумму в долларах США в рубли.
     
-    Параметры:
+    Args:
         amount_usd (float): сумма в долларах.
     
-    Возвращает:
+    Returns:
         float: эквивалент суммы в рублях.
     """
     return amount_usd * USD_TO_RUB
