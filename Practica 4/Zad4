@@ -11,6 +11,8 @@ def Bishop_Movement (Column_Start, Row_Start, Column_End, Row_End):
     True если попасть в клетку возможно
     False если пропасть в клетку невозможно
     """
+    # Проверка условия движения слона:
+    # Слон ходит только по диагоналям, поэтому разница по горизонтали и вертикали должна быть одинаковой
     if abs(Column_End - Column_Start) == abs(Row_End - Row_Start):
         return True
     else:
