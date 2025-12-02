@@ -21,6 +21,8 @@ def Bishop_Movement (Column_Start, Row_Start, Column_End, Row_End):
 CHESSBOARD_SIZE = 8
 Column_StartBishop, Row_StartBishop = map(int, input("Введите номер столбца и строки первой клетки шахматной доски через пробел, в которой стоит слон (от 1 до 8) ").split())
 Column_EndBishop, Row_EndBishop = map(int, input("Введите номер столбца и строки второй клетки шахматной доски через пробел, в которую нужно попасть (от 1 до 8) ").split())
+
+# Проверка корректности введенных данных
 if 1 <= Column_StartBishop <= CHESSBOARD_SIZE and  1 <= Row_StartBishop <= CHESSBOARD_SIZE and 1 <= Column_EndBishop <= CHESSBOARD_SIZE and 1 <= Row_EndBishop <= CHESSBOARD_SIZE:
     if Bishop_Movement(Column_StartBishop, Row_StartBishop, Column_EndBishop, Row_EndBishop):
         print("YES")
