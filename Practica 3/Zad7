@@ -1,0 +1,56 @@
+import math
+print ("Вычисление площади треугольника и длины его сторон по заданным координатам")
+
+def calculate_distance(x1, y1, x2, y2):
+   """
+   Вычисляет расстояние между двумя точками на плоскости.
+
+   Args:
+       x1 (float): x-координата первой точки
+       y1 (float): y-координата первой точки
+       x2 (float): x-координата второй точки
+       y2 (float): y-координата второй точки
+
+   Returns:
+       float: расстояние между точками (x1,y1) и (x2,y2)
+   """
+   return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+
+
+def calculate_triangle_area(a, b, c):
+   """
+   Вычисляет площадь треугольника по трем сторонам используя формулу Герона.
+
+   Args:
+       a (float): длина первой стороны
+       b (float): длина второй стороны
+       c (float): длина третьей стороны
+
+   Returns:
+       float: площадь треугольника
+       None: если треугольник с такими сторонами не существует
+   """
+
+# Вычисление полупериметра
+p = (a + b + c) / 2
+
+# Формула Герона
+area = math.sqrt(p * (p - a) * (p - b) * (p - c))
+
+print("Введите координаты трех вершин треугольника")
+
+# Ввод координат
+x1,y1 = map (float, input("Введите координаты точки A через пробел: ").split())
+x2,y2 = map (float, input("Введите координаты точки B через пробел: ").split())
+x3,y3 = map (float, input("Введите координаты точки C через пробел: ").split())
+
+# Вычисление длин сторон
+side_AB = calculate_distance(x1, y1, x2, y2)
+side_BC = calculate_distance(x2, y2, x3, y3)
+side_CA = calculate_distance(x3, y3, x1, y1)
+
+# Вычисление площади
+area_triangle = calculate_triangle_area(side_AB, side_BC, side_CA)
+
+# Вывод результата
+print(f"\nДлины сторон треугольника:", f"AB = {side_AB:.2f}", f"BC = {side_BC:.2f}", f"CA = {side_CA:.2f}", f"Площадь треугольника = {area_triangle:.2f}")
