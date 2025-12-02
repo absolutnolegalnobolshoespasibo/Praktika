@@ -1,0 +1,3 @@
+place_count = int(input("Введите номер места пассажира\n"))
+print("Номер купе:")
+print((place_count + 3) // 4)
