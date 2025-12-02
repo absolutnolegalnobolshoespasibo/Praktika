@@ -1,0 +1,30 @@
+print("Определение количества и стоимости бензина")
+
+def calculate_fuel_and_cost():
+   """
+   Определяет количество и стоимость бензина
+
+   Const:
+       FUEL_COST (float): Стоимость 1л бензина
+
+   Args:
+       distance (float): Расстояние в км
+       fuel_consumption (float): Расход топлива
+
+   Returns:
+       fuel_amount (float): Кол-во необходимого бензина
+       fuel_price (float): Стоимость необходимого бензина
+   """
+   # ввод данных
+   distance = float(input("Какое расстояние необходимо проехать машине (км)?\n"))
+   fuel_consumption = float(input("Сколько литров бензина на 100 км ест машина?\n"))
+   FUEL_COST = 49.5
+
+   # расчёт
+   fuel_amount = fuel_consumption * distance / 100
+   fuel_price = fuel_amount * FUEL_COST
+
+   # вывод
+   print("На", f"{distance:.2f}", "км машине с расходом топлива", f"{fuel_consumption:.2f}", "потребуется", f"{fuel_amount:.2f}", "бензина стоимостью", f"{fuel_price:.2f}", "рублей")
+
+calculate_fuel_and_cost()
