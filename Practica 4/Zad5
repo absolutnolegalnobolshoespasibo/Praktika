@@ -18,7 +18,7 @@ def Queen_Movement (Column_Start, Row_Start, Column_End, Row_End):
 
 CHESSBOARD_SIZE = 8
 Column_StartQueen, Row_StartQueen = map(int, input("Введите номер столбца и строки первой клетки шахматной доски через пробел, в которой стоит слон (от 1 до 8) ").split())
-Column_EndQueen, Row_EndQueen = map(int, input("Введите номер столбца и строки первой клетки шахматной доски через пробел, в которую нужно попасть (от 1 до 8) ").split())
+Column_EndQueen, Row_EndQueen = map(int, input("Введите номер столбца и строки второй клетки шахматной доски через пробел, в которую нужно попасть (от 1 до 8) ").split())
 if 1 <= Column_StartQueen <= CHESSBOARD_SIZE and  1 <= Row_StartQueen <= CHESSBOARD_SIZE and 1 <= Column_EndQueen <= CHESSBOARD_SIZE and 1 <= Row_EndQueen <= CHESSBOARD_SIZE:
     if Queen_Movement(Column_StartQueen, Row_StartQueen, Column_EndQueen, Row_EndQueen):
         print("YES")
