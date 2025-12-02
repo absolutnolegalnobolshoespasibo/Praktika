@@ -1,0 +1,7 @@
+try:
+   num1=int(input())
+except ValueError: print("Неверно набранный тип данных")
+try:
+   num2=int(input())
+except ValueError: print("Неверно набранный тип данных")
+print(num1+num2)
