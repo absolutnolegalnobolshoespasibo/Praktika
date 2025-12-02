@@ -1,0 +1,28 @@
+print("Определение возможности ферзя переместиться на другую клетку")
+def Queen_Movement (Column_Start, Row_Start, Column_End, Row_End):
+    """
+    Определяет цвет клетки шахматной доски по её параметрам
+
+    Параметры:
+    Column_Start, Row_Start - координаты шахматной клетки (столбец и строка соответственно) в которой стоит Ферзь
+    Column_End, Row_End - координаты шахматной клетки (столбец и строка соответственно) в которую нужно попасть
+
+    Возвращает:
+    True если попасть в клетку возможно
+    False если пропасть в клетку невозможно
+    """
+    if abs(Column_End - Column_Start) == abs(Row_End - Row_Start) or Column_End == Column_Start or Row_End == Row_Start:
+        return True
+    else:
+        return False
+
+CHESSBOARD_SIZE = 8
+Column_StartQueen, Row_StartQueen = map(int, input("Введите номер столбца и строки первой клетки шахматной доски через пробел, в которой стоит слон (от 1 до 8) ").split())
+Column_EndQueen, Row_EndQueen = map(int, input("Введите номер столбца и строки первой клетки шахматной доски через пробел, в которую нужно попасть (от 1 до 8) ").split())
+if 1 <= Column_StartQueen <= CHESSBOARD_SIZE and  1 <= Row_StartQueen <= CHESSBOARD_SIZE and 1 <= Column_EndQueen <= CHESSBOARD_SIZE and 1 <= Row_EndQueen <= CHESSBOARD_SIZE:
+    if Queen_Movement(Column_StartQueen, Row_StartQueen, Column_EndQueen, Row_EndQueen):
+        print("YES")
+    else:
+        print("NO")
+else:
+    print("Ошибка ввода данных")
