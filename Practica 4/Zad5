@@ -11,6 +11,10 @@ def Queen_Movement (Column_Start, Row_Start, Column_End, Row_End):
     True если попасть в клетку возможно
     False если пропасть в клетку невозможно
     """
+    # Проверка условий движения ферзя:
+    # abs(Column_End - Column_Start) == abs(Row_End - Row_Start) - движение по диагонали (как слон)
+    # Column_End == Column_Start - движение по вертикали (тот же столбец)
+    # Row_End == Row_Start - движение по горизонтали (та же строка)
     if abs(Column_End - Column_Start) == abs(Row_End - Row_Start) or Column_End == Column_Start or Row_End == Row_Start:
         return True
     else:
