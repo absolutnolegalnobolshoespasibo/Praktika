@@ -1,6 +1,0 @@
-place_count = int(input("Введите номер места пассажира\n"))
-print("Номер купе:")
-if place_count % 4 == 0:
-    print(place_count // 4)
-else:
-    print(place_count // 4 + 1)

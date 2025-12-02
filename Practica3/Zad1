@@ -1,4 +1,0 @@
-import math
-x = float(input("Введите действительное число\n"))
-print("Сумма пола и потолка введённого числа равна:")
-print(math.floor(x)+math.ceil(x))

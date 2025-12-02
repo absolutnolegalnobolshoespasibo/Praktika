@@ -1,5 +1,0 @@
-import math
-degree = float(input("Введите исходное число градусов: "))
-radians = math.radians(degree)
-print("Значение тригонометрического выражения равно:")
-print(math.sin(radians)+math.cos(radians)+math.tan(radians)**2)
