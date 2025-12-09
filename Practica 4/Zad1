@@ -34,34 +34,39 @@ print("\nАНАЛИЗ ПО ПАРАМЕТРАМ:")
 
 # Температура
 if NORMAL_TEMP_MIN <= temperature <= NORMAL_TEMP_MAX:
-    temp_status = "норма"
+    temp_status = MSG_NORMAL
 elif (MILD_TEMP_MIN <= temperature < NORMAL_TEMP_MIN) or (NORMAL_TEMP_MAX < temperature <= MILD_TEMP_MAX):
-    temp_status = "небольшое отклонение"
+    temp_status = MSG_MILD
 else:
-    temp_status = "критическое отклонение"
+    temp_status = MSG_SEVERE
 
 # Давление
 if NORMAL_PRESSURE_MIN <= pressure <= NORMAL_PRESSURE_MAX:
-    pressure_status = "норма"
+    pressure_status = MSG_NORMAL
 elif (MILD_PRESSURE_MIN <= pressure < NORMAL_PRESSURE_MIN) or (NORMAL_PRESSURE_MAX < pressure <= MILD_PRESSURE_MAX):
-    pressure_status = "небольшое отклонение"
+    pressure_status = MSG_MILD
 else:
-    pressure_status = "критическое отклонение"
+    pressure_status = MSG_SEVERE
 
 # Пульс
 if NORMAL_PULSE_MIN <= pulse <= NORMAL_PULSE_MAX:
-    pulse_status = "норма"
+    pulse_status = MSG_NORMAL
 elif (MILD_PULSE_MIN <= pulse < NORMAL_PULSE_MIN) or (NORMAL_PULSE_MAX < pulse <= MILD_PULSE_MAX):
-    pulse_status = "небольшое отклонение"
+    pulse_status = MSG_MILD
 else:
-    pulse_status = "критическое отклонение"
+    pulse_status = MSG_SEVERE
 
 print(f"• Температура: {temperature}°C ({temp_status})")
 print(f"• Давление: {pressure} ({pressure_status})")
 print(f"• Пульс: {pulse} уд/мин ({pulse_status})")
 
-print("\n" + "=" * 50)
-print("РЕЗУЛЬТАТЫ АНАЛИЗА:")
-print("=" * 50)
+if pulse_status == MSG_SEVERE or pressure_status == MSG_SEVERE or temp_status == MSG_SEVERE:
+    result = MSG_SEVERE
+elif pulse_status == MSG_MILD or pressure_status == MSG_MILD or temp_status == MSG_MILD:
+    result = MSG_MILD
+else:
+    result = MSG_NORMAL
+
+
 print(f"Общее состояние: {result}")
-print("-" * 50)
+
