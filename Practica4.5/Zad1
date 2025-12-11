@@ -1,0 +1,12 @@
+print("Определение сезона")
+month = int(input("Введите число текущего месяца (!-12): "))
+
+match month:
+    case 12 | 1 | 2:
+        print(month, "Сейчас зима ❄️❄️🎄")
+    case 3 | 4 | 5:
+        print(month, "Сейчас весна 🌸🥰")
+    case 6 | 7 | 8:
+        print(month, "Сейчас лето 👺☀️")
+    case 9 | 10 | 11:
+        print(month, "Сейчас осень 🍂.ೃ࿔*:･🌿")
