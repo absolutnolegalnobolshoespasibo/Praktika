@@ -1,0 +1,49 @@
+from unittest import case
+
+
+def evaluate_rating(rating):
+    """
+    Оценивает рейтинг продукта и возвращает описание, эмодзи и рекомендацию.
+
+    Args:
+        rating (int): Числовой рейтинг от 1 до 10
+
+    Returns:
+        tuple: (описание, эмодзи, рекомендация)
+    """
+    if not 1 <= rating <= 10:
+        return "Неверный рейтинг", "❌", "Введите число от 1 до 10"
+
+    match rating:
+        case 10 | 9:
+            return "отличный", "⭐", "рекомендую"
+        case 8 | 7:
+            return "хороший", "👍", "можно попробовать"
+        case 6 | 5:
+            return "средний", "😐", "можно попробовать"
+        case 4 | 3 | 2 | 1:
+            return "плохой", "👎", "не рекомендую"
+        case
+
+
+def main():
+    print("=== СИСТЕМА РЕЙТИНГА ПРОДУКТОВ ===")
+    print("Введите рейтинг от 1 до 10")
+    print("-" * 30)
+
+    try:
+        rating = int(input("Ваш рейтинг: "))
+        description, emoji, recommendation = evaluate_rating(rating)
+
+        print(f"\nРезультат оценки:")
+        print(f"Рейтинг: {rating}/10")
+        print(f"Описание: {description}")
+        print(f"Эмодзи: {emoji}")
+        print(f"Рекомендация: {recommendation}")
+
+    except ValueError:
+        print("\n❌ Ошибка: Пожалуйста, введите целое число!")
+
+
+if __name__ == "__main__":
+    main(
