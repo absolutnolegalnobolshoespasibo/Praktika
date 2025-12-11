@@ -9,12 +9,12 @@ pocket = int(input(f"Введите номер кармана от 0 до {RULLE
 
 if pocket == 0:
     print("Зелёный")
-elif 0 < pocket < RULLETE_RANGE1 or RULLETE_RANGE2+1 < pocket < RULLETE_RANGE3:
+elif 0 < pocket <= RULLETE_RANGE1 or RULLETE_RANGE2 < pocket <= RULLETE_RANGE3:
     if pocket % 2 == 1:
         print("Красный")
     else:
         print("Чёрный")
-elif RULLETE_RANGE1+1 < pocket < RULLETE_RANGE2 or RULLETE_RANGE3+1 < pocket < RULLETE_RANGE4:
+elif RULLETE_RANGE1 < pocket <= RULLETE_RANGE2 or RULLETE_RANGE3 < pocket <= RULLETE_RANGE4:
     if pocket % 2 == 0:
         print("Красный")
     else:
