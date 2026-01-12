@@ -1,0 +1,8 @@
+print("Факториал числа")
+
+n = int(input("Введите число: "))
+Count = 1
+
+for i in range(1, n+1):
+    Count *= i
+print(f"Факториал числа = {Count}")
