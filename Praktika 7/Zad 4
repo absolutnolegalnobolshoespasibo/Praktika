@@ -1,11 +1,11 @@
 print("Очень особенная последовательность чисел")
 
-m,n = map(int, input("Введите два целых числа m,n через пробел (m<=n): ").split())
+NumberOne,NumberTwo = map(int, input("Введите два целых числа m,n через пробел (m<=n): ").split())
 MULTIPLISITY_ONE = 17
 ENDING = 9
 MULTIPLISITY_TWO = 3
 MULTIPLISITY_THREE = 5
 
-for i in range(m, n+1):
+for i in range(NumberOne, NumberTwo+1):
     if i % MULTIPLISITY_ONE == 0 or i % MULTIPLISITY_TWO == 0 and i % MULTIPLISITY_THREE == 0 or i % 10 == ENDING:
         print(i)
