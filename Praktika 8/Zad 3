@@ -1,0 +1,11 @@
+print("Знакочередующаяся сумма")
+
+RangeNumber = int(input("Введите натуральное число n: "))
+Count = 0
+
+for i in range(1, RangeNumber+1):
+    if i % 2 != 0:
+        Count += i
+    else:
+        Count -= i
+print(Count)
