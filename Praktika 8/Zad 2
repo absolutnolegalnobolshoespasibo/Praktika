@@ -1,0 +1,13 @@
+print("Определение чётности ряда чисел")
+
+EVEN = True
+NUMBERSCOUNT = 10
+
+for i in range(1, NUMBERSCOUNT+1):
+    if int(input(f"Введите целое число {i}: ")) % 2 != 0:
+        EVEN = False
+
+if EVEN:
+    print ("YES")
+else:
+    print ("NO")
