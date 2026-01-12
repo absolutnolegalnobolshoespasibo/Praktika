@@ -1,0 +1,11 @@
+print("Последовательность чисел")
+
+m,n = map(int, input("Введите два целых числа m,n через пробел: ").split())
+STEP = -1
+
+if m<n:
+    STEP = 1
+    n+=2
+
+for i in range(m, n-1, STEP):
+    print(i)
