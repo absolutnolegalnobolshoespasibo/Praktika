@@ -1,7 +1,7 @@
 print("Таблица умножения")
 
-n = int(input("Введите целое число: "))
+Number = int(input("Введите целое число: "))
 MULTIPLIER = 10
 
 for i in range(MULTIPLIER+1):
-    print(f"{n} x {i} = {n*i}")
+    print(f"{Number} x {i} = {Number*i}")
