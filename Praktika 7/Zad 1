@@ -1,0 +1,8 @@
+print("Чётные числа от 2 до 20")
+
+START = 2
+END = 20
+
+for i in range(START, END+1):
+    if i % 2 == 0:
+        print(i)
