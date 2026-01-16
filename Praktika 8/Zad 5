@@ -1,0 +1,16 @@
+print("Наибольшие числа")
+Count = int(input("Введите натуральное число n >= 2: "))
+
+MaxFirst = 0
+MaxSecond = 0
+
+for i in range(Count):
+    Number = int(input())
+    if Number > MaxFirst:
+        MaxSecond = MaxFirst
+        MaxFirst = Number
+    elif Number > MaxSecond:
+        MaxSecond = Number
+
+print(MaxFirst)
+print(MaxSecond)
