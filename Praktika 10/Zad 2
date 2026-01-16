@@ -10,8 +10,12 @@ while True:
     name = input("Введите имя человека в очереди: ")
 
     if name == NAME_START:
-        found_alexandra = True
-        between_phase = True
+        if not found_alexandra:
+            found_alexandra = True
+            between_phase = True
+        else:
+            print(f"Ошибка! {NAME_START} повторяется")
+            break
 
     elif name == NAME_END:
         if found_alexandra:
