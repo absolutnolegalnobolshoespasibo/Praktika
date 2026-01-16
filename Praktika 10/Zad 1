@@ -1,0 +1,9 @@
+print("Следуй правилам ")
+
+n = int(input("Введите число n: "))
+
+Count = 1
+while Count <= n:
+    if not (5 <= Count <= 9 or 17 <= Count <= 37 or 78 <= Count <= 87):
+        print(Count)
+    Count += 1
