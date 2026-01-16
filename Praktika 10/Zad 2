@@ -1,7 +1,7 @@
 print("Сколько ждать?")
 
 count_between = 0
-found_alexandra = False
+found_name = False
 between_phase = False
 NAME_START = "Александра"
 NAME_END = "Левон"
@@ -10,15 +10,15 @@ while True:
     name = input("Введите имя человека в очереди: ")
 
     if name == NAME_START:
-        if not found_alexandra:
-            found_alexandra = True
+        if not found_name:
+            found_name = True
             between_phase = True
         else:
             print(f"Ошибка! {NAME_START} повторяется")
             break
 
     elif name == NAME_END:
-        if found_alexandra:
+        if found_name:
             print(f"Между {NAME_START} и {NAME_END} {count_between} людей")
         else:
             print(f"Ошибка! {NAME_START} находится перед {NAME_END}")
