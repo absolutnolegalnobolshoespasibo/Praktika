@@ -1,0 +1,13 @@
+print("Ведьмаку заплатите чеканной монетой")
+
+price = int(input("Введите цену: "))
+count = 0
+count += price // 25
+price %= 25
+count += price // 10
+price %= 10
+count += price // 5
+price %= 5
+count += price
+
+print(f"Минимальное количество чеканных монет для оплаты: {count}")
