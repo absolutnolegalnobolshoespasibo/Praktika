@@ -1,0 +1,14 @@
+print ("Пароль")
+
+PASSWORD = "admin"
+Try = 1
+
+while True:
+    Guess = input("Введите пароль: ")
+    if Guess == PASSWORD:
+        print("Доступ разрешён")
+        break
+    if Try > 2:
+        print("Доступ заблокирован")
+        break
+    Try += 1
