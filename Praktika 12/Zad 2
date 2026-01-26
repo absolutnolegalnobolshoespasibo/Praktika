@@ -1,0 +1,16 @@
+print ("Строго возрастающая последовательность")
+
+def Comparison (Low):
+    while True:
+        High = int(input("Введите число: "))
+        if Low < High:
+            return High
+        else:
+            print("Ошибка, введите число заново")
+
+NumOne = int(input("Введите число: "))
+NumTwo = Comparison(NumOne)
+NumThree = Comparison(NumTwo)
+
+print("Последовательность принята")
+
