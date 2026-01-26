@@ -8,7 +8,7 @@ while True:
     NewPrice = int(input("Введите цену товара: "))
     if NewPrice == 0:
         break
-    elif NewPrice < 0:
+    if NewPrice < 0:
         print("Ошибка цены")
         continue
     Sum += NewPrice
