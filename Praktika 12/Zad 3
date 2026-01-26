@@ -1,0 +1,15 @@
+print ("Рекордсмен")
+
+Max = 0
+
+while True:
+    NewNumber = int(input("Введите число: "))
+    if NewNumber == 0:
+        break
+    elif NewNumber > Max:
+        Max = NewNumber
+
+if Max == 0:
+    print("Ошибка! Не введено ни одно число")
+else:
+    print(f"Наибольшее ввдеённое число = {Max}")
