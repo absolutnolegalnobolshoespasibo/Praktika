@@ -1,0 +1,25 @@
+print ("Банкомат")
+
+Balance = 1000
+GIVE = 100
+TAKE = 100
+
+while True:
+    Command = int(input("1. Узнать баланс\n2. Снять 100 руб\n3. Положить 100 руб\n4. Выход\n"))
+    match Command:
+        case 1:
+            print(f"Ваш баланс {Balance}")
+        case 2:
+            if Balance >= TAKE:
+                Balance -= TAKE
+                print(f"Снято {TAKE} рублей")
+            else:
+                print("Недостаточно средств")
+        case 3:
+            Balance += GIVE
+            print(f"Добавлено {GIVE} рублей")
+        case 4:
+            print("До свидания")
+            break
+        case _:
+            print("Неверная команда")
