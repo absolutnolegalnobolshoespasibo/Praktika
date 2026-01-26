@@ -6,7 +6,7 @@ while True:
     NewNumber = int(input("Введите число: "))
     if NewNumber == 0:
         break
-    elif NewNumber > Max:
+    if NewNumber > Max:
         Max = NewNumber
 
 if Max == 0:
