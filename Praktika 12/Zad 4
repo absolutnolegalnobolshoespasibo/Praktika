@@ -1,0 +1,18 @@
+print ("Кассовый аппарат")
+
+Sum = 0
+SUM_DISCOUNT = 1000
+DISCOUNT = 0.1
+
+while True:
+    NewPrice = int(input("Введите цену товара: "))
+    if NewPrice == 0:
+        break
+    elif NewPrice < 0:
+        print("Ошибка цены")
+        continue
+    Sum += NewPrice
+
+if Sum > SUM_DISCOUNT:
+    Sum *= 1-DISCOUNT
+print(f"Итоговая сумма к оплате: {Sum}")
