@@ -1,0 +1,95 @@
+print("=" * 40)
+print("         МЕНЮ КАФЕ")
+print("=" * 40)
+print("| №  | Напиток     | Цена       |")
+print("|----|-------------|------------|")
+print("| 1  | Кофе ☕     | 120 рублей |")
+print("| 2  | Чай 🍵     | 80 рублей  |")
+print("| 3  | Сок 🥤     | 100 рублей |")
+print("| 4  | Вода 💧    | 50 рублей  |")
+print("| 5  | Лимонад 🍋 | 90 рублей  |")
+print("=" * 40)
+print()
+
+COFFEE_PRICE = 120
+TEA_PRICE = 80
+JUICE_PRICE = 100
+WATER_PRICE = 50
+LEMONADE_PRICE = 90
+
+drink_input = input("Выберите напиток (номер 1-5 или название): ")
+drink_selected = True
+
+match drink_input:
+    case "1" | "Кофе":
+        drink_name = "Кофе"
+        price = COFFEE_PRICE
+    case "2" | "Чай":
+        drink_name = "Чай"
+        price = TEA_PRICE
+    case "3" | "Сок":
+        drink_name = "Сок"
+        price = JUICE_PRICE
+    case "4" | "Вода":
+        drink_name = "Вода"
+        price = WATER_PRICE
+    case "5" | "Лимонад":
+        drink_name = "Лимонад"
+        price = LEMONADE_PRICE
+    case _:
+        print("❌ Ошибка: Напиток не найден в меню!")
+        drink_selected = False
+
+if drink_selected:
+    try:
+        quantity = int(input(f"Введите количество порций {drink_name}: "))
+        if quantity <= 0:
+            print("❌ Ошибка: Количество должно быть положительным числом!")
+        else:
+            discount_code = input("Введите код скидки (если есть, иначе нажмите Enter): ")
+
+            total = price * quantity
+            discount = 0
+            discount_percent = 0
+
+            match discount_code:
+                case "STUDENT":
+                    discount_percent = 20
+                case "WEEKEND":
+                    discount_percent = 10
+                case "FRIEND":
+                    discount_percent = 15
+                case "":
+                    print()
+                case _:
+                    print("⚠️  Код скидки не распознан, скидка не применена")
+            if discount_percent > 0:
+                discount = total * discount_percent // 100
+            final_amount = total - discount
+
+            match quantity:
+                case 1:
+                    portions = "порция"
+                case 2 | 3 | 4:
+                    portions = "порции"
+                case _:
+                    portions = "порций"
+
+            print("\n" + "=" * 40)
+            print("         КВИТАНЦИЯ КАФЕ")
+            print("=" * 40)
+            print()
+
+            print(f"Товар: {drink_name}")
+            print(f"Цена за порцию: {price} руб")
+            print(f"Количество: {quantity} {portions}")
+            print(f"Сумма: {total} руб")
+
+            if discount > 0:
+                print(f"\nСкидка \"{discount_code}\" ({discount_percent}%): -{discount} руб")
+
+            print("\n" + "-" * 40)
+            print(f"К ОПЛАТЕ: {final_amount} руб")
+            print("=" * 40)
+    except ValueError:
+        print("❌ Ошибка: Введите корректное число!")
