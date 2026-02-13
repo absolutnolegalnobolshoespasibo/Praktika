@@ -1,0 +1,10 @@
+print("Обработка списка товаров")
+
+prices_str = '100 50 200 150 75 300'
+prices_list = prices_str.split(' ')
+prices = [int(prise) for prise in prices_list]
+prices.remove(max(prices))
+prices.append(int(max(prices)*0.5))
+prices.sort()
+print(', '.join(map(str, prices)))
+print(f"Средняя цена {(sum(prices)/len(prices)):.2f}")
