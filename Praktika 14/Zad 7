@@ -1,0 +1,13 @@
+print("Ручной поиск индекса")
+numbers = [10, 20, 30, 40, 50]
+Target = int(input("Введите искомое число: "))
+Found = False
+
+for i in range(len(numbers)):
+    if numbers[i] == Target:
+        print(f"Искомое число: {numbers[i]}")
+        Found = True
+        break
+
+if not Found:
+    print("Нет такого числа")
