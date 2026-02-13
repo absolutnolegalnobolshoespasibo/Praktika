@@ -1,0 +1,13 @@
+print("Обмен значений")
+
+import random
+Numbers = list()
+for i in range(5):
+    Numbers.append(random.randint(1, 100))
+
+print("Исходный список:", Numbers)
+
+MinIndex = Numbers.index(min(Numbers))
+Numbers[0], Numbers[MinIndex] = Numbers[MinIndex], Numbers[0]
+
+print("Результат:", Numbers)
