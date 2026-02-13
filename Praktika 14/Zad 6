@@ -1,0 +1,9 @@
+print("Палиндром")
+
+Word = list(input("Введите слово: ").lower())
+WordReverse = Word[::-1]
+
+if Word == WordReverse:
+    print("Палиндром")
+else:
+    print("Не палиндром")
