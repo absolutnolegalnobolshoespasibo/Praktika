@@ -1,0 +1,15 @@
+print("Ручной подсчет")
+
+Marks = [5, 4, 3, 5, 2, 5, 4, 3, 5, 5]
+
+FiveCount = 0
+TwoCount = 0
+
+for i in Marks:
+    if i == 5:
+        FiveCount += 1
+    elif i == 2:
+        TwoCount += 1
+
+print(f"Количество пятерок: {FiveCount}")
+print(f"Количество двоек: {TwoCount}")
