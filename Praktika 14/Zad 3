@@ -1,0 +1,9 @@
+print("Изменение списка")
+
+Users = ['Admin', 'Guest', 'User', 'Bot']
+
+Users[2] = 'Moderator'
+Users[-1] = 'SuperAdmin'
+Users.append('Newbie')
+
+print(Users)
