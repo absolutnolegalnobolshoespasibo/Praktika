@@ -1,0 +1,184 @@
+import random
+from itertools import product
+
+
+def generate_random_mapping(items, values):
+    """Генерирует случайное соответствие между двумя списками"""
+    shuffled_values = values.copy()
+    random.shuffle(shuffled_values)
+    return dict(zip(items, shuffled_values))
+
+
+def generate_form_mapping(runes, forms):
+    """
+    Генерирует соответствие между парами рун и формами.
+    Комбинации рун симметричны: (а,б) дает ту же форму, что и (б,а)
+    """
+    # Создаем множество уникальных неупорядоченных пар
+    unique_pairs = set()
+    for r1, r2 in product(runes, repeat=2):
+        # Сортируем руны, чтобы пары (а,б) и (б,а) считались одинаковыми
+        pair = tuple(sorted([r1, r2]))
+        unique_pairs.add(pair)
+
+    # Преобразуем в список для удобства работы
+    unique_pairs = list(unique_pairs)
+
+    # Определяем, какие пары получат особые формы
+    special_pairs = random.sample(unique_pairs, 4)  # Выбираем 4 случайные пары
+
+    # Создаём словарь: по умолчанию все пары = "точка"
+    mapping = {}
+
+    # Сначала заполняем все пары значением "точка"
+    for pair in unique_pairs:
+        mapping[pair] = "точка"
+
+    # Назначаем особые формы выбранным парам
+    special_forms = ["крест", "шар", "линия", "Т"]
+    random.shuffle(special_forms)
+
+    for i, pair in enumerate(special_pairs):
+        mapping[pair] = special_forms[i]
+
+    return mapping
+
+
+def process_runes(dir1, dir2):
+    """Обрабатывает направления для определения результата"""
+    # Проверка на противоположные направления
+    if (dir1, dir2) in [("влево", "вправо"), ("вправо", "влево"),
+                        ("вверх", "вниз"), ("вниз", "вверх")]:
+        return "на", "себя"
+
+    # Одинаковые направления
+    if dir1 == dir2:
+        return dir1, None  # None означает, что нужно использовать дистанцию
+
+    # Разные направления
+    return f"{dir1} {dir2}", None
+
+
+def main():
+    colors = ["к", "о", "ф", "з"]
+    actions = ["движение", "атака", "препятствие", "особое действие"]
+    directions = ["вверх", "вниз", "вправо", "влево"]
+    distances = [1, 2, 3, 4]
+    runes = ["а", "б", "г", "д"]
+    elements = ["вд", "зм", "ог", "вз"]
+    forms = ["точка", "крест", "шар", "линия", "Т"]
+
+    # Каждая стихия имеет своё уникальное соответствие цвет-действие
+    color_actions = {}
+    for element in elements:
+        color_actions[element] = generate_random_mapping(colors, actions)
+
+    # Для каждой комбинации стихия-цвет генерируем соответствие руна-направление
+    rune_directions = {}
+    for element in elements:
+        rune_directions[element] = {}
+        for color in colors:
+            rune_directions[element][color] = generate_random_mapping(runes, directions)
+
+    # Для каждой комбинации стихия-цвет генерируем соответствие руна-расстояние
+    rune_distances = {}
+    for element in elements:
+        rune_distances[element] = {}
+        for color in colors:
+            rune_distances[element][color] = generate_random_mapping(runes, distances)
+
+    # Для каждой комбинации стихия-цвет генерируем соответствие пар рун - форма
+    rune_forms = {}
+    for element in elements:
+        rune_forms[element] = {}
+        for color in colors:
+            rune_forms[element][color] = generate_form_mapping(runes, forms)
+
+    # Ввод данных
+    while True:
+        while True:
+            try:
+                parts = input("Введите стихию, цвет и 2-3 руны: ").lower().strip().split()
+                if len(parts) < 4:
+                    print("Ошибка! Нужно ввести 4 элемента: стихия, цвет, две руны")
+                    continue
+
+                element = parts[0]
+                color = parts[1]
+                rune1 = parts[2]
+                rune2 = parts[3]
+                rune3 = parts[4] if len(parts) > 4 else None
+
+                if element not in elements:
+                    print(f"Ошибка! Стихия должна быть одной из: {', '.join(elements)}")
+                    continue
+
+                if color not in colors:
+                    print(f"Ошибка! Цвет должен быть одним из: {', '.join(colors)}")
+                    continue
+
+                if rune1 not in runes or rune2 not in runes:
+                    print(f"Ошибка! Руны должны быть из: {', '.join(runes)}")
+                    continue
+
+                if len(parts) > 4 and rune3 not in runes and rune3 is not None:
+                    print(f"Ошибка! Руны должны быть из: {', '.join(runes)}")
+                    continue
+                break
+
+            except Exception as e:
+                print(f"Ошибка ввода: {e}")
+
+        # Получаем результаты
+        action = color_actions[element][color]
+
+        if rune3 is None:
+            direction_result = rune_directions[element][color][rune1]
+            distance = rune_distances[element][color][rune2]
+            
+            # Сортируем руны для получения формы
+            form_key = tuple(sorted([rune1, rune2]))
+            form = rune_forms[element][color][form_key]
+        else:
+            dir1 = rune_directions[element][color][rune1]
+            dir2 = rune_directions[element][color][rune2]
+            dist = rune_distances[element][color][rune3]
+
+            while True:
+                parts = input(f"Выберите две руны из {rune1}, {rune2}, {rune3}: ").lower().strip().split()
+                if len(parts) != 2:
+                    print("Ошибка! Нужно ввести 2 руны")
+                    continue
+
+                runef1 = parts[0]
+                runef2 = parts[1]
+                if runef1 not in [rune1, rune2, rune3] or runef2 not in [rune1, rune2, rune3]:
+                    print("Ошибка! Нужно ввести корректные руны")
+                    continue
+                # Сортируем руны для получения формы
+                form_key = tuple(sorted([runef1, runef2]))
+                form = rune_forms[element][color][form_key]
+                break
+
+            # Обрабатываем направления
+            direction_result, special_case = process_runes(dir1, dir2)
+
+            # Определяем расстояние
+            if special_case == "себя":
+                distance = "себя"
+            else:
+                distance = dist
+        match element:
+            case "вд": elementprint = "Вода"
+            case "зм": elementprint = "Земля"
+            case "ог": elementprint = "Огонь"
+            case "вз": elementprint = "Воздух"
+
+        # Формируем вывод
+        print("\n" * 5)
+        print(f"{elementprint}, {action} {direction_result} {distance}, {form}")
+        print("\n" * 5)
+
+
+if __name__ == "__main__":
+    main()
