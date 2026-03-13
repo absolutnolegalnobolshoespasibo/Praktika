@@ -1,0 +1,15 @@
+print("Поиск максимального элемента")
+import random
+List = []
+Max = 0
+Row = 0
+Pos = 0
+for i in range(random.randint(1, 10)):
+    List.append([])
+    for j in range(random.randint(1, 10)):
+        List[i].append(random.randint(1, 10))
+        if List[i][j] > Max:
+            Max = List[i][j]
+            Row = i+1
+            Pos = j+1
+print(f"Максимальное число - {Max}, строка - {Row}, позиция - {Pos}")
