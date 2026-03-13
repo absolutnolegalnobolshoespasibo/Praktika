@@ -1,0 +1,13 @@
+print("Поиск элемента во вложенном списке")
+import random
+List = [[]]
+Found = False
+for i in range(random.randint(1, 10)):
+    List[0].append(random.randint(1, 10))
+Search = int(input("Введите значение для поиска: "))
+for i in range(len(List[0])):
+    if List[0][i] == Search:
+        Found = True
+        print(f"Искомое значение находится в позиции {i+1}")
+if not Found:
+    print("Искомое значение не найдено")
