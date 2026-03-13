@@ -1,0 +1,10 @@
+print("Фильтрация вложенного списка")
+import random
+List = [[]]
+for i in range(random.randint(1, 10)):
+    List[0].append(random.randint(-10, 10))
+List.append([])
+for i in range(len(List[0])):
+    if List[0][i] > 0:
+        List[1].append(List[0][i])
+print(f"Исходный список: {List[0]}, отфильтрованный список: {List[1]}")
