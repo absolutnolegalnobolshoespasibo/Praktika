@@ -3,11 +3,11 @@ import random
 List = []
 Max = 0
 SumTotal = 0
-for i in range(random.randint(1, 10)):
+for i in range(random.randint(0, 9)):
     List.append([])
     RowSum = 0
-    for j in range(random.randint(1, 10)):
-        List[i].append(random.randint(1, 10))
+    for j in range(random.randint(0, 9)):
+        List[i].append(random.randint(0, 9))
         RowSum += List[i][j]
     print(f"Сумма строки {i+1} = {RowSum}")
     if RowSum > Max:
