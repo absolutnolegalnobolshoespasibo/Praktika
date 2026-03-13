@@ -1,0 +1,17 @@
+print("Подсчёт всех элементов")
+import random
+List = []
+Max = 0
+SumTotal = 0
+for i in range(random.randint(1, 10)):
+    List.append([])
+    RowSum = 0
+    for j in range(random.randint(1, 10)):
+        List[i].append(random.randint(1, 10))
+        RowSum += List[i][j]
+    print(f"Сумма строки {i+1} = {RowSum}")
+    if RowSum > Max:
+        Max = RowSum
+        Row = i+1
+    SumTotal += RowSum
+print(f"Строка с максимальной суммой - {Row}, общая сумма всех элементов = {SumTotal}")
