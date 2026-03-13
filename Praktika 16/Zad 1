@@ -4,10 +4,10 @@ List = []
 Max = 0
 Row = 0
 Pos = 0
-for i in range(random.randint(1, 10)):
+for i in range(random.randint(0, 9)):
     List.append([])
-    for j in range(random.randint(1, 10)):
-        List[i].append(random.randint(1, 10))
+    for j in range(random.randint(0, 9)):
+        List[i].append(random.randint(0, 9))
         if List[i][j] > Max:
             Max = List[i][j]
             Row = i+1
