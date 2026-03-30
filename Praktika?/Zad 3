@@ -1,0 +1,15 @@
+Required = {'Python', 'SQL', 'Git', 'Docker'}
+Candidate1 = {'Python', 'SQL', 'Git', 'Docker', 'Kubernetes'}
+Candidate2 = {'Python', 'SQL', 'JavaScript'}
+Candidate3 = {'Python', 'SQL', 'Git', 'HTML/CSS'}
+
+Candidate = [Candidate1, Candidate2, Candidate3]
+
+for i in range(len(Candidate)):
+    Additional = Candidate[i] - Required
+    if Required.issubset(Candidate[i]):
+        print(f"Кандидат номер {i+1} соответствует требованиям")
+    if Candidate[i] - Required != set():
+        print(f"Кандидат номер {i+1} обладает следующими дополнительными навыками: {Candidate[i] - Required}")
+    if Required - Candidate[i] != set():
+        print(f"Кандидат номер {i+1} не имеет следующих навыков: {Required - Candidate[i]}")
