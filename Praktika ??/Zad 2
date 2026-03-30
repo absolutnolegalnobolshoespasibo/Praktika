@@ -1,0 +1,10 @@
+Allowed = {10, 20, 30}
+Incoming = (20, 40, 10, 50)
+
+for i in range(len(Incoming)):
+    if Incoming[i] in Allowed:
+        print("OK")
+    else:
+        Allowed.add(Incoming[i])
+        print("ADDED")
+
