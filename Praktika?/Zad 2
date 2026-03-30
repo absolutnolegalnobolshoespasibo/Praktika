@@ -1,0 +1,6 @@
+Word1 = set(input("Введите первое слово: ").lower())
+Word2 = set(input("Введите второе слово: ").lower())
+print(f"Буквы в обоих словах: {Word1 & Word2}")
+print(f"Только в первом: {Word1 - Word2}")
+print(f"Только во втором: {Word2 - Word1}")
+print(f"Все буквы: {Word1 | Word2}")
