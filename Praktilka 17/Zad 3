@@ -1,0 +1,11 @@
+def get_next_prime(num):
+    prime = False
+    prime_num = num + 1
+    while not prime:
+        prime = True
+        for i in range(2, int(prime_num**0.5) + 1):
+            if prime_num % i == 0:
+                prime = False
+                prime_num = prime_num + 1
+                break
+    return prime_num
