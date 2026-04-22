@@ -9,3 +9,5 @@ def get_next_prime(num):
                 prime_num = prime_num + 1
                 break
     return prime_num
+
+print(get_next_prime(input("Введите число ")))
