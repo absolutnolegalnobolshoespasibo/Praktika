@@ -7,4 +7,4 @@ def is_prime(num):
                 break
     return prime
 
-print(get_days(input("Введите число ")))
+print(is_prime(input("Введите число ")))
