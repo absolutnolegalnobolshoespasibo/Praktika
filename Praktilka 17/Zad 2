@@ -6,3 +6,5 @@ def is_prime(num):
                 prime = False
                 break
     return prime
+
+print(get_days(input("Введите число ")))
