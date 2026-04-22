@@ -5,3 +5,5 @@ def get_days(month):
         return 30
     else:
         return 31
+
+print(get_days(input("Введите месяц ")))
