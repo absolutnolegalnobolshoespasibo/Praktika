@@ -4,4 +4,4 @@ def is_password_good(password):
     else:
         return False
 
-print(get_days(input("Введите пароль ")))
+print(is_password_good(input("Введите пароль ")))
