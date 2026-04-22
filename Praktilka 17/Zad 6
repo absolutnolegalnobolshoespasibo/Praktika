@@ -7,4 +7,4 @@ def solve (a,b,c):
     else:
         return (-b-D**0.5)/(2*a), (-b+D**0.5)/(2*a)
 
-print(solve(input("Введите коэффиценты через запятую ")))
+print(solve(int(input("Введите коэффицент а ")), int(input("Введите коэффицент b ")), int(input("Введите коэффицент с "))))
