@@ -30,3 +30,4 @@ def is_valid_password(password):
 
     return True
 
+print(is_valid_password(input("Введите пароль ")))
